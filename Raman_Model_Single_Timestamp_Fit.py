@@ -24,6 +24,20 @@ from scipy import stats
 ################################ USER INPUTS #################################
 ##############################################################################
 
+data = pd.read_csv('test_data.csv', header = None)
+
+xy_coord=pd.DataFrame(data.iloc[1:37,0:2])
+spectra=pd.DataFrame(data.iloc[1:37,2:-1]).reset_index(drop=True).to_numpy()
+spectra_3D=spectra.reshape(6,6,894)
+spectra_3D_flip=np.flipud(spectra_3D)
+wavenumber=pd.DataFrame(data.iloc[0,2:-1]).reset_index(drop=True).to_numpy()
+
+
+
+
+
+
+
 # Define your intial parameters here.  
 initial_vals = {'filepath':'C:\\Users\LMEYER\Desktop\LNO_LiClO4inPC_JH17_0_Abs_sub.txt',
                 'Plot_Title' : 'Generic Title',
@@ -56,13 +70,17 @@ def single_fit():
     "get_insitu_data" extracts the desired region of the specified spectrum
     and outputs the wavenumbers and absorbances as x_fit and y_fit respectively
     """
-    def get_data(filepath, lower_bound, upper_bound):
+    def get_data(spectra_3D_flip,wavenumber,lower_bound, upper_bound):
         
-        data = pd.read_csv(filepath, header = None,skiprows=1)
+        # data = pd.read_csv(filepath, header = None,skiprows=1)
         # select out the desired data from the dataframe
-        x_vals = list(data.loc[:,0])
+        x_vals = list(wavenumber)
         #Would add for loop here to get all the locations as well as something to organize by dimensions
-        y_vals = list(data.loc[:,1])
+        
+        
+        
+        
+        y_vals = list(spectra_3D_flip.iloc[:,1])
         
         # create and populate a list containing rounded x-values
         rounded_x = []

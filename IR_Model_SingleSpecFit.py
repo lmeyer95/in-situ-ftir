@@ -54,6 +54,7 @@ def single_fit():
         data = pd.read_csv(filepath, header = None,skiprows=1)
         # select out the desired data from the dataframe
         x_vals = list(data.loc[:,0])
+        #Would add for loop here to get all the locations as well as something to organize by dimensions
         y_vals = list(data.loc[:,1])
         
         # create and populate a list containing rounded x-values

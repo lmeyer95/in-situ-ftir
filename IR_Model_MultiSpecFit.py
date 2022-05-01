@@ -19,13 +19,13 @@ from natsort import natsorted
 ##############################################################################
 
 # Define your intial parameters here.  
-initial_vals = {'folder':'C:\\Users\LMEYER\Documents\Practice FTIR code\LNO_1MLiClO4inPC_Data_BLSub\LNO_1MLiClO4inPC_Data_BLSub_BLSub',
+initial_vals = {'folder':'C:\\Users\LMEYER\Documents\in situ Raman\test_data',
                 'export_folder' : 'C:\\Users\LMEYER\Documents\Practice FTIR code',
-                'start' : 140, # Which run do you want to start the fit? 1 is the first. 
+                'start' : 1, # Which run do you want to start the fit? 1 is the first. 
                                # This parameter matters when fitting a select number of spectra
                 'step' : 1, # At what interval should spectra be selected? 
                             # 1 is recommended because of peak shifting
-                'amount' : 100, # How many total spectra do you want to fit? 
+                'amount' : 3, # How many total spectra do you want to fit? 
                 # 'all' or 'All' will fit all starting at the first spectrum, 
                 # while entering an integer will fit that many spectra 
                 # starting at the specified spectrum 
